@@ -15,6 +15,8 @@ namespace HilberCurve
 {
     public partial class MainWindow : Form
     {
+
+        Bitmap image = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,13 +29,31 @@ namespace HilberCurve
 
 
 
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Open Image";
+                dlg.Filter = "bmp files (*.bmp)|*.bmp";
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    //PictureBox PictureBox1 = new PictureBox();
+
+                    // Create a new Bitmap object from the picture file on disk,
+                    // and assign that to the PictureBox.Image property
+                    image = new Bitmap(dlg.FileName);
+
+                }
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             using (Graphics g = pictureBox1.CreateGraphics())
             {
                 g.Clear(Color.Black);
-
+                //image = new Bitmap(image, pictureBox1.ClientSize);
                 Pen pen = new System.Drawing.Pen(Color.Red);
                 pen.Width = 1;
 
@@ -49,11 +69,18 @@ namespace HilberCurve
 
                 for (var i = 0; i < N * N; i++)
                 {
-                    pen.Color = helper.HsvToRgb(i * 360 / (N * N), 1, 1);
-
                     curr = helper.hindex2xy(i, N);
 
-                    g.DrawEllipse(pen, curr[0] * blockSize + offset -2, curr[1] * blockSize + offset -2, 4, 4);
+                    if (image != null)
+                    {
+                        var pixel =  image.GetPixel(curr[0] * blockSize + offset, curr[1] * blockSize + offset);
+                        pen.Color = Color.FromArgb(pixel.R, pixel.G, pixel.B);
+                    }
+                    else
+                        pen.Color = helper.HsvToRgb(i * 360 / (N * N), 1, 1);
+
+
+                    g.DrawEllipse(pen, curr[0] * blockSize + offset - 2, curr[1] * blockSize + offset - 2, 4, 4);
                     g.DrawLine(pen, prev[0] * blockSize + offset, prev[1] * blockSize + offset, curr[0] * blockSize + offset, curr[1] * blockSize + offset);
 
                     prev = curr;
@@ -62,7 +89,6 @@ namespace HilberCurve
             }
 
             System.GC.Collect();
-
         }
     }
 }
