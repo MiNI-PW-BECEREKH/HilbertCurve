@@ -17,6 +17,7 @@ namespace HilberCurve
     {
 
         Bitmap image = null;
+         Bitmap pictureBoxAboveLayer =  new Bitmap(700,700);
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace HilberCurve
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
                 dlg.Title = "Open Image";
-                dlg.Filter = "bmp files (*.bmp)|*.bmp";
+                dlg.Filter = "files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
@@ -42,7 +43,7 @@ namespace HilberCurve
 
                     // Create a new Bitmap object from the picture file on disk,
                     // and assign that to the PictureBox.Image property
-                    image = new Bitmap(dlg.FileName);
+                    image = helper.fillPictureBox(pictureBox1, new Bitmap(dlg.FileName));
 
                 }
             }
@@ -50,8 +51,11 @@ namespace HilberCurve
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            pictureBoxAboveLayer = new Bitmap(pictureBox1.Width,pictureBox1.Height);
             using (Graphics g = pictureBox1.CreateGraphics())
             {
+                var gg = Graphics.FromImage(pictureBoxAboveLayer);
+                gg.Clear(Color.Black);
                 g.Clear(Color.Black);
                 //image = new Bitmap(image, pictureBox1.ClientSize);
                 Pen pen = new System.Drawing.Pen(Color.Red);
@@ -62,7 +66,7 @@ namespace HilberCurve
                 int[] prev = { 0, 0 };
                 int[] curr;
 
-                var blockSize = 512 / N;
+                var blockSize = pictureBox1.Width / N;
                 var offset = blockSize / 2;
 
 
@@ -83,12 +87,21 @@ namespace HilberCurve
                     g.DrawEllipse(pen, curr[0] * blockSize + offset - 2, curr[1] * blockSize + offset - 2, 4, 4);
                     g.DrawLine(pen, prev[0] * blockSize + offset, prev[1] * blockSize + offset, curr[0] * blockSize + offset, curr[1] * blockSize + offset);
 
+                    gg.DrawEllipse(pen, curr[0] * blockSize + offset - 2, curr[1] * blockSize + offset - 2, 4, 4);
+                    gg.DrawLine(pen, prev[0] * blockSize + offset, prev[1] * blockSize + offset, curr[0] * blockSize + offset, curr[1] * blockSize + offset);
+
                     prev = curr;
+                    
                 }
 
             }
 
             System.GC.Collect();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            pictureBoxAboveLayer.Save("return.png");
         }
     }
 }

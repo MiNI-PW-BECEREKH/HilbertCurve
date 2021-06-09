@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\suhey\\Desktop\\HilberCurve\\HilbertCurve.csproj",
+      "projectUniqueName": "C:\\Users\\suhey\\Desktop\\HilbertCurve\\HilbertCurve.csproj",
       "projectName": "HilbertCurve",
-      "projectPath": "C:\\Users\\suhey\\Desktop\\HilberCurve\\HilbertCurve.csproj",
+      "projectPath": "C:\\Users\\suhey\\Desktop\\HilbertCurve\\HilbertCurve.csproj",
       "packagesPath": "C:\\Users\\suhey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\suhey\\Desktop\\HilberCurve\\obj\\",
+      "outputPath": "C:\\Users\\suhey\\Desktop\\HilbertCurve\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\suhey\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
