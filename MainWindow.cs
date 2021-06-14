@@ -84,10 +84,10 @@ namespace HilberCurve
                         pen.Color = helper.HsvToRgb(i * 360 / (N * N), 1, 1);
 
 
-                    g.DrawEllipse(pen, curr[0] * blockSize + offset - 2, curr[1] * blockSize + offset - 2, 4, 4);
+                    //g.DrawEllipse(pen, curr[0] * blockSize + offset - 2, curr[1] * blockSize + offset - 2, 2, 2);
                     g.DrawLine(pen, prev[0] * blockSize + offset, prev[1] * blockSize + offset, curr[0] * blockSize + offset, curr[1] * blockSize + offset);
 
-                    gg.DrawEllipse(pen, curr[0] * blockSize + offset - 2, curr[1] * blockSize + offset - 2, 4, 4);
+                    //gg.DrawEllipse(pen, curr[0] * blockSize + offset - 2, curr[1] * blockSize + offset - 2, 2, 2);
                     gg.DrawLine(pen, prev[0] * blockSize + offset, prev[1] * blockSize + offset, curr[0] * blockSize + offset, curr[1] * blockSize + offset);
 
                     prev = curr;
