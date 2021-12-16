@@ -23,7 +23,6 @@ C:\Users\suhey\Desktop\HilbertCurve\bin\Debug\net5.0-windows\HilbertCurve.runtim
 C:\Users\suhey\Desktop\HilbertCurve\bin\Debug\net5.0-windows\HilbertCurve.dll
 C:\Users\suhey\Desktop\HilbertCurve\bin\Debug\net5.0-windows\ref\HilbertCurve.dll
 C:\Users\suhey\Desktop\HilbertCurve\bin\Debug\net5.0-windows\HilbertCurve.pdb
-C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilbertCurve.csprojAssemblyReference.cache
 C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilberCurve.MainWindow.resources
 C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilbertCurve.csproj.GenerateResource.cache
 C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilbertCurve.GeneratedMSBuildEditorConfig.editorconfig
@@ -35,3 +34,4 @@ C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\ref\HilbertCurve.dl
 C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilbertCurve.pdb
 C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilbertCurve.genruntimeconfig.cache
 C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilbertCurve.Properties.Resources.resources
+C:\Users\suhey\Desktop\HilbertCurve\obj\Debug\net5.0-windows\HilbertCurve.csproj.AssemblyReference.cache

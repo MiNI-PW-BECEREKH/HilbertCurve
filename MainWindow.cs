@@ -101,7 +101,17 @@ namespace HilberCurve
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            pictureBoxAboveLayer.Save("return.png");
+            using(SaveFileDialog dlg = new SaveFileDialog())
+            {
+                dlg.Title = "Save Image";
+                dlg.Filter = "files (*.bmp;*.png;*.jpg)|*.bmp;*.png;*.jpg";
+
+                if(dlg.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxAboveLayer.Save(dlg.FileName);
+                }
+
+            }
         }
     }
 }
